@@ -1,10 +1,40 @@
-<div>
-    {% url 'index' as index_url %}
-    <span>{% if request.path == index_url %}Home{% else %}<a href="{{ index_url }}">Home</a>{% endif %}</span>
-    {% url 'data' as data_url %}
-    <span>{% if request.path == data_url %}Data{% else %}<a href="{{ data_url }}">Data</a>{% endif %}</span>
-    {% url 'graph' as graph_url %}
-    <span>{% if request.path == graph_url %}Graph{% else %}<a href="{{ graph_url }}">Graph</a>{% endif %}</span>
-    {% url 'feedback:feedback' as feedback_url %}
-    <span>{% if request.path == feedback_url %}Feedback{% else %}<a href="{{ feedback_url }}">Feedback</a>{% endif %}</span>
-</div>
+{% url 'index' as index_url %}
+{% url 'data' as data_url %}
+{% url 'graph' as graph_url %}
+{% url 'feedback:feedback' as feedback_url %}
+
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="#page-top">Petrec</a>
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == index_url %}active{% endif %}" href="{{ index_url }}">Home</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == data_url %}active{% endif %}" href="{{ data_url }}">Data</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == graph_url %}active{% endif %}" href="{{ graph_url }}">Graph</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == feedback_url %}active{% endif %}" href="{{ feedback_url }}">Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav> -->
