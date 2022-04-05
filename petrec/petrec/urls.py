@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include, url
+from django.contrib.auth import views as auth_views
 from . import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('data', views.data, name="data"),
     path('graph', views.graph, name="graph"),
-    path('feedback', views.feedback, name="feedback"),
+    path('feedback', include('feedback.urls')),
+
+    #Django auth
 ]

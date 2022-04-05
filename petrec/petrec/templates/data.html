@@ -4,6 +4,18 @@
 
 {% block content %}
 <h1>
-    Template Data
+    Please upload you csv file
 </h1>
+<form method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <input type="file" name="document" id="document" required="required">
+    <button type="submit">Upload</button>
+</form>
+{% block messages %}
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+{% endblock %}
 {% endblock %}

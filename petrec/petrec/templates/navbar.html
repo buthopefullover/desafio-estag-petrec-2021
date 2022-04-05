@@ -5,6 +5,6 @@
     <span>{% if request.path == data_url %}Data{% else %}<a href="{{ data_url }}">Data</a>{% endif %}</span>
     {% url 'graph' as graph_url %}
     <span>{% if request.path == graph_url %}Graph{% else %}<a href="{{ graph_url }}">Graph</a>{% endif %}</span>
-    {% url 'feedback' as feedback_url %}
+    {% url 'feedback:feedback' as feedback_url %}
     <span>{% if request.path == feedback_url %}Feedback{% else %}<a href="{{ feedback_url }}">Feedback</a>{% endif %}</span>
 </div>
